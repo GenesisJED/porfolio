@@ -7,10 +7,9 @@ const ProjectSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
 
-  // Check if we're on mobile
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768) // 768px is the md breakpoint in Tailwind
+      setIsMobile(window.innerWidth < 1280);
     }
 
     checkMobile()
@@ -77,7 +76,6 @@ const ProjectSection = () => {
       {/* Mobile Slider */}
       {isMobile && (
         <div className="relative">
-          {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
@@ -184,7 +182,7 @@ const ProjectSection = () => {
                       href="#"
                       className="flex-1 sm:flex-none inline-flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 sm:bg-transparent px-3 py-2 sm:px-0 sm:py-0 rounded-md sm:rounded-none"
                     >
-                      <Github className="h-4 w-4" />
+                      <Github className="h-5 w-4" />
                       <span className="sm:inline">View Repo</span>
                     </a>
                     <a
@@ -227,7 +225,7 @@ const ProjectSection = () => {
 
 const DescriptionToggle = ({ description }) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const shortDescription = description.split(" ").slice(0, 20).join(" ") + "..." // Aproximadamente 3 líneas
+  const shortDescription = description.split(" ").slice(0, 20).join(" ") + "...";
 
   return (
     <p className="text-sm text-gray-400 mb-4">

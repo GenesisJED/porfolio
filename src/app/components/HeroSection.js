@@ -1,5 +1,5 @@
 "use client";
-import { Github, Linkedin } from "lucide-react";
+import { ArrowRight, ArrowRightIcon, ArrowRightSquare, ArrowRightToLine, Github, Linkedin } from "lucide-react";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -17,26 +17,13 @@ const HeroSection = () => {
     setMousePosition({ x, y });
   };
 
-  const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "React.js",
-    "Next.js",
-    "Node.js",
-    "PHP",
-    "Docker",
-    "AWS",
-  ];
-
   return (
-    <div
+    <section
       className="relative"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      >
+    >
       <div
         className="pattern-bg default-fade"
         style={{
@@ -60,55 +47,47 @@ const HeroSection = () => {
 
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="md:w-3/4">
-          <h1 className="text-5xl font-bold tracking-light">
-            <span className="block text-slate-300 text-3xl md:text-4xl mt-5">Génesis Escalona</span>
-            <p className="block text-xl md:text-2xl mt-1">Full Stack Developer</p>
+          <h1 className="text-5xl font-semibold tracking-light">
+            <span className="block text-primary-400 text-xl md:text-3xl mt-5">Hello, my name is Génesis</span>
+            <p className="block mt-2 text-2xl md:text-4xl">I am a Full Stack Developer</p>
           </h1>
-          <p className="mt-2 md:mt-6 text-slate-300 leading-8">
-            I am a full-stack developer focused on creating efficient and maintainable code. I believe in building solutions that are not only functional but also easy to understand and extend.
-          </p>
 
-          <div className="mt-4 md:mt-8">
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="text-sm md:text-base font-medium text-slate-400 hover:text-slate-200 transition-colors px-2 py-1 rounded-md"
-                >
-                  {skill}
-                </span>
-              ))}
+          <p className="mt-2 sm:text-xl md:mt-6 text-slate-300 leading-8">
+            Focused on creating efficient and maintainable code. I believe in building solutions that are not only functional but also easy to understand and extend.
+          </p>
+          <div className="flex mt-2 md:mt-10 gap-4">
+            <div className="flex mt-4 md:mt-10 gap-6 items-center">
+              <div className="flex items-center space-x-4">
+                <span className="text-violet-300">Find me on LinkedIn & GitHub</span>
+                <div className="flex items-center space-x-3 sm:space-x-10">
+                  <ArrowRight
+                    className="text-primary-400 animate-pulse transform transition-transform duration-300 ease-in-out hover:translate-x-1"
+                    size={30}
+                    strokeWidth={2}
+                  />
+                  <Link
+                    href="https://www.linkedin.com/in/g%C3%A9nesis-e-602b151b4/"
+                    className="text-slate-400 hover:text-slate-200 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin size={30} />
+                  </Link>
+                  <Link
+                    href="https://github.com/GenesisJED"
+                    className="text-slate-400 hover:text-slate-200 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github size={30} />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="flex mt-2 md:mt-10 gap-4">
-          <div className="flex mt-4 md:mt-10 gap-6 items-center">
-          <Link
-            href="#contact"
-            className="md:text-lg font-semibold text-primary-400 hover:text-primary-500 transition-colors"
-          >
-            Find me on LinkedIn & GitHub
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/g%C3%A9nesis-e-602b151b4/"
-            className="text-slate-400 hover:text-slate-200 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin size={30} />
-          </Link>
-          <Link
-            href="https://github.com/GenesisJED"
-            className="text-slate-400 hover:text-slate-200 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github size={30} />
-          </Link>
-        </div>
-        </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
