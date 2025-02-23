@@ -1,15 +1,16 @@
 "use client"
-import Image from "next/image";
-import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import Image from "next/image"
+import { ExternalLink, Github } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const ProjectSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
+  const [touchStart, setTouchStart] = useState(null)
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1280);
+      setIsMobile(window.innerWidth < 1024)
     }
 
     checkMobile()
@@ -33,7 +34,7 @@ const ProjectSection = () => {
       tags: ["NextJs", "Cloudflare", "PayloadCMS"],
       description:
         "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. blog website with animated page transitions. This project uses MDX and NextJS to build the front-end. Framer Motion is used to create page transitions.",
-      image: "/images/project-2.png",
+      image: "/images/blog-pt.png",
     },
     {
       id: 3,
@@ -41,7 +42,7 @@ const ProjectSection = () => {
       tags: ["TS", "Postgres", "DrizzleORM"],
       description:
         "A platform for collecting feedback from users. A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI.",
-      image: "/images/p.png",
+      image: "/images/blog-pt.png",
     },
     {
       id: 4,
@@ -49,21 +50,9 @@ const ProjectSection = () => {
       tags: ["TS", "NextJS", "DrizzleORM"],
       description:
         "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. quiz generator that uses AI to generate questions.",
-      image: "/images/project-2.png",
+      image: "/images/blog-pt.png",
     },
   ]
-
-  const nextSlide = () => {
-    if (currentSlide < projects.length - 1) {
-      setCurrentSlide((prev) => prev + 1)
-    }
-  }
-
-  const prevSlide = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide((prev) => prev - 1)
-    }
-  }
 
   return (
     <section id="projects" className="px-4 py-20 sm:py-24 lg:py-32 sm:px-6 lg:px-8">
@@ -72,26 +61,31 @@ const ProjectSection = () => {
       {/* Mobile Slider */}
       {isMobile && (
         <div className="relative">
-          <button
-            onClick={prevSlide}
-            disabled={currentSlide === 0}
-            className={`absolute left-[-20px] top-1/3 -translate-y-1/2 z-10 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 shadow-lg transition-all
-              ${currentSlide === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-700/80 hover:border-primary-500/50"}`}
-          >
-            <ChevronLeft className="h-6 w-6 text-primary-300" />
-          </button>
-
-          <button
-            onClick={nextSlide}
-            disabled={currentSlide === projects.length - 1}
-            className={`absolute right-[-20px] top-1/3 -translate-y-1/2 z-10 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 shadow-lg transition-all
-              ${currentSlide === projects.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-700/80 hover:border-primary-500/50"}`}
-          >
-            <ChevronRight className="h-6 w-6 text-primary-300" />
-          </button>
-
           {/* Slider Container */}
-          <div className="overflow-hidden">
+          <div
+            className="overflow-hidden"
+            onTouchStart={(e) => {
+              const touch = e.touches[0]
+              setTouchStart(touch.clientX)
+            }}
+            onTouchMove={(e) => {
+              if (touchStart === null) return
+
+              const touch = e.touches[0]
+              const diff = touchStart - touch.clientX
+
+              if (diff > 50 && currentSlide < projects.length - 1) {
+                setCurrentSlide((prev) => prev + 1)
+                setTouchStart(null)
+              } else if (diff < -50 && currentSlide > 0) {
+                setCurrentSlide((prev) => prev - 1)
+                setTouchStart(null)
+              }
+            }}
+            onTouchEnd={() => {
+              setTouchStart(null)
+            }}
+          >
             <div
               className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -165,9 +159,9 @@ const ProjectSection = () => {
               key={project.id}
               className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/30 hover:border-primary-500/30 transition-colors hover:shadow-sm"
             >
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <div className="flex flex-col gap-4">
-                  <div className="w-full sm:w-[200px] h-[140px] flex-shrink-0 relative rounded-[2px] overflow-hidden">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+                <div className="flex flex-col gap-4 md:w-2/5 lg:w-2/5">
+                  <div className="w-full h-[140px] md:h-[120px] lg:h-[140px] flex-shrink-0 relative rounded-[2px] overflow-hidden">
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
@@ -176,29 +170,29 @@ const ProjectSection = () => {
                     />
                   </div>
 
-                  <div className="flex sm:flex-col gap-2">
+                  <div className="flex md:flex-row lg:flex-col gap-2">
                     <a
                       href="https://blog-genesis.onrender.com/"
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 sm:bg-transparent px-3 py-2 sm:px-0 sm:py-0 rounded-md sm:rounded-none"
+                      className="flex-1 md:flex-none inline-flex items-center justify-center md:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 md:bg-transparent px-3 py-2 md:px-2 md:py-1 lg:px-0 lg:py-0 rounded-md md:rounded-sm lg:rounded-none"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="h-4 w-4" />
-                      <span className="sm:inline">View Project</span>
+                      <span className="md:inline">View Project</span>
                     </a>
                     <a
                       href="https://github.com/GenesisJED/fullstack-blog-mern"
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 sm:bg-transparent px-3 py-2 sm:px-0 sm:py-0 rounded-md sm:rounded-none"
+                      className="flex-1 md:flex-none inline-flex items-center justify-center md:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 md:bg-transparent px-3 py-2 md:px-2 md:py-1 lg:px-0 lg:py-0 rounded-md md:rounded-sm lg:rounded-none"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <Github className="h-5 w-4" />
-                      <span className="sm:inline">View Repo</span>
+                      <span className="md:inline">View Repo</span>
                     </a>
                   </div>
                 </div>
 
-                <div className="flex flex-col flex-grow">
+                <div className="flex flex-col flex-grow md:w-3/5 lg:w-3/5">
                   <div className="flex items-center gap-2 mb-2">
                     <h3 className="text-lg font-semibold text-white">{project.title}</h3>
                   </div>
@@ -227,7 +221,7 @@ const ProjectSection = () => {
 
 const DescriptionToggle = ({ description }) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const shortDescription = description.split(" ").slice(0, 20).join(" ") + "...";
+  const shortDescription = description.split(" ").slice(0, 20).join(" ") + "..."
 
   return (
     <p className="text-sm text-gray-400 mb-4">
