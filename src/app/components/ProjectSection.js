@@ -75,7 +75,7 @@ const ProjectSection = () => {
           <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
-            className={`absolute left-[-20px] top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 shadow-lg transition-all
+            className={`absolute left-[-20px] top-1/3 -translate-y-1/2 z-10 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 shadow-lg transition-all
               ${currentSlide === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-700/80 hover:border-primary-500/50"}`}
           >
             <ChevronLeft className="h-6 w-6 text-primary-300" />
@@ -84,7 +84,7 @@ const ProjectSection = () => {
           <button
             onClick={nextSlide}
             disabled={currentSlide === projects.length - 1}
-            className={`absolute right-[-20px] top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 shadow-lg transition-all
+            className={`absolute right-[-20px] top-1/3 -translate-y-1/2 z-10 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 shadow-lg transition-all
               ${currentSlide === projects.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-700/80 hover:border-primary-500/50"}`}
           >
             <ChevronRight className="h-6 w-6 text-primary-300" />
