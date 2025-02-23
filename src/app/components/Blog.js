@@ -33,7 +33,7 @@ const Blog = () => {
             <div className="p-4">
               <h3 className="text-xl md:text-1xl font-semibold mb-2">{post.title}</h3>
               <p className="text-sm mb-4">{post.category}</p>
-              <Link href={`https://fullstack-blog-mern-coya.onrender.com/post/${post.slug}`}
+              <Link href={`${url}/post/${post.slug}`}
                 className="btn text-primary-400 hover:text-primary-500 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer">

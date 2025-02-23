@@ -1,7 +1,7 @@
 "use client"
-import Image from "next/image"
-import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react"
-import { useState, useEffect } from "react"
+import Image from "next/image";
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const ProjectSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -133,7 +133,6 @@ const ProjectSection = () => {
                       <div className="flex flex-col flex-grow">
                         <div className="flex items-center gap-2 mb-2">
                           <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-                          <ExternalLink className="h-4 w-4 text-gray-400" />
                         </div>
 
                         <DescriptionToggle description={project.description} />
@@ -202,7 +201,6 @@ const ProjectSection = () => {
                 <div className="flex flex-col flex-grow">
                   <div className="flex items-center gap-2 mb-2">
                     <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-                    <ExternalLink className="h-4 w-4 text-gray-400" />
                   </div>
 
                   <DescriptionToggle description={project.description} />

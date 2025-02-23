@@ -1,8 +1,8 @@
 "use client";
-import { ArrowRight, ArrowRightIcon, ArrowRightSquare, ArrowRightToLine, Github, Linkedin } from "lucide-react";
-
+import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
