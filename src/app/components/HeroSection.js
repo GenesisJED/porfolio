@@ -3,7 +3,6 @@ import { ArrowRight, ArrowRightIcon, ArrowRightSquare, ArrowRightToLine, Github,
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -25,7 +24,7 @@ const HeroSection = () => {
       onMouseLeave={() => setIsHovering(false)}
     >
       <div
-        className="pattern-bg default-fade"
+        className="pattern-bg relative w-full h-full default-fade"
         style={{
           opacity: isHovering ? 0 : 0.3,
           transition: "opacity 0.5s ease-in-out",

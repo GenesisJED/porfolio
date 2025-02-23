@@ -61,10 +61,7 @@ body {
 
 .pattern-bg {
   position: absolute;
-  top: -6rem;
-  left: -6rem;
-  width: calc(100% + 12rem);
-  right: -6rem;
+  inset: 0;
   bottom: -6rem;
   z-index: -1;
   opacity: 0.8;

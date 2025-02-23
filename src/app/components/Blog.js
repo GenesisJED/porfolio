@@ -5,10 +5,11 @@ import React, { useEffect, useState } from 'react';
 const Blog = () => {
   const [posts, setPosts] = useState([]);
 
+  const url = 'https://blog-genesis.onrender.com';
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch('https://fullstack-blog-mern-coya.onrender.com/api/post/getposts');
+        const res = await fetch(`${url}/api/post/getposts`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }

@@ -21,12 +21,11 @@ const ProjectSection = () => {
   const projects = [
     {
       id: 1,
-      title: "AI Summarization Tool",
-      tags: ["AWS", "React", "Cloudflare"],
+      title: "Dynamic Blog Platform with Dashboard",
+      tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
       description:
-        "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI.",
-      image: "/images/project-1.png",
-      techStack: ["React", "AWS", "Cloudflare", "TailwindCSS", "NodeJS"],
+        "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments and likes, and a control panel with differentiated roles (user and admin) for an efficient administration.",
+      image: "/images/blog-pt.png",
     },
     {
       id: 2,
@@ -35,7 +34,6 @@ const ProjectSection = () => {
       description:
         "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. blog website with animated page transitions. This project uses MDX and NextJS to build the front-end. Framer Motion is used to create page transitions.",
       image: "/images/project-2.png",
-      techStack: ["NextJS", "Cloudflare", "PayloadCMS", "TailwindCSS", "NodeJS", "TypeScript"],
     },
     {
       id: 3,
@@ -44,7 +42,6 @@ const ProjectSection = () => {
       description:
         "A platform for collecting feedback from users. A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI.",
       image: "/images/p.png",
-      techStack: ["TypeScript", "Postgres", "DrizzleORM", "TailwindCSS", "NodeJS", "Stripe API"],
     },
     {
       id: 4,
@@ -53,7 +50,6 @@ const ProjectSection = () => {
       description:
         "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. quiz generator that uses AI to generate questions.",
       image: "/images/project-2.png",
-      techStack: ["TypeScript", "NextJS", "OpenAI", "TailwindCSS", "NodeJS", "Stripe API"],
     },
   ]
 
@@ -115,18 +111,22 @@ const ProjectSection = () => {
 
                       <div className="flex gap-2">
                         <a
-                          href="#"
+                          href="https://blog-genesis.onrender.com/"
                           className="flex-1 inline-flex items-center justify-center gap-2 text-sm text-gray-400 transition-colors hover:text-white px-3 py-2 rounded-md"
-                        >
-                          <Github className="h-5 w-5" />
-                          <span>Repo</span>
-                        </a>
-                        <a
-                          href="#"
-                          className="flex-1 inline-flex items-center justify-center gap-2 text-sm text-gray-400 transition-colors hover:text-white px-3 py-2 rounded-md"
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <ExternalLink className="h-5 w-5" />
                           <span>Project</span>
+                        </a>
+                        <a
+                          href="https://github.com/GenesisJED/fullstack-blog-mern"
+                          className="flex-1 inline-flex items-center justify-center gap-2 text-sm text-gray-400 transition-colors hover:text-white px-3 py-2 rounded-md"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="h-5 w-5" />
+                          <span>Repo</span>
                         </a>
                       </div>
 
@@ -179,18 +179,22 @@ const ProjectSection = () => {
 
                   <div className="flex sm:flex-col gap-2">
                     <a
-                      href="#"
+                      href="https://blog-genesis.onrender.com/"
                       className="flex-1 sm:flex-none inline-flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 sm:bg-transparent px-3 py-2 sm:px-0 sm:py-0 rounded-md sm:rounded-none"
-                    >
-                      <Github className="h-5 w-4" />
-                      <span className="sm:inline">View Repo</span>
-                    </a>
-                    <a
-                      href="#"
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 sm:bg-transparent px-3 py-2 sm:px-0 sm:py-0 rounded-md sm:rounded-none"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <ExternalLink className="h-4 w-4" />
                       <span className="sm:inline">View Project</span>
+                    </a>
+                    <a
+                      href="https://github.com/GenesisJED/fullstack-blog-mern"
+                      className="flex-1 sm:flex-none inline-flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 sm:bg-transparent px-3 py-2 sm:px-0 sm:py-0 rounded-md sm:rounded-none"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="h-5 w-4" />
+                      <span className="sm:inline">View Repo</span>
                     </a>
                   </div>
                 </div>
