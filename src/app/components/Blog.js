@@ -9,7 +9,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`${url}/api/post/getposts`);
+        const res = await fetch(`${url}/api/post/getposts?limit=3`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
@@ -23,7 +23,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <section id="blog" className="container mx-auto px-5 py-8 sm:py-12 bg-gray-800/20 rounded-lg">
+    <section id="blog" className="mt-20 sm:mt-40 px-0 py-0 sm:py-12 rounded-lg">
       <header>
         <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-400">My posts</h2>
       </header>
