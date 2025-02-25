@@ -47,7 +47,7 @@ const HeroSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="md:w-3/4">
           <h1 className="text-5xl font-semibold tracking-light">
-            <span className="block text-primary-400 text-xl md:text-3xl mt-5">Hello, my name is Génesis</span>
+            <span className="block text-primary-400 text-xl md:text-3xl mt-5">Hello, my name is Genesis</span>
             <p className="block mt-2 text-2xl md:text-4xl">I am a Full Stack Developer</p>
           </h1>
 
