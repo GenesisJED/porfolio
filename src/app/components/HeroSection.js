@@ -2,7 +2,7 @@
 import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-
+import { BaseInfo } from "../../../Data/data.js";
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -47,17 +47,17 @@ const HeroSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="md:w-3/4">
           <h1 className="text-5xl font-semibold tracking-light">
-            <span className="block text-primary-400 text-xl md:text-3xl mt-5">Hello, my name is Genesis</span>
-            <p className="block mt-2 text-2xl md:text-4xl">I am a Full Stack Developer</p>
+            <span className="block text-primary-400 text-xl md:text-3xl mt-5">{ BaseInfo.name }</span>
+            <p className="block mt-2 text-2xl md:text-4xl">{ BaseInfo.position }</p>
           </h1>
 
           <p className="mt-2 sm:text-xl md:mt-6 text-slate-300 leading-8">
-            Focused on creating efficient and maintainable code. I believe in building solutions that are not only functional but also easy to understand and extend.
+            { BaseInfo.description }
           </p>
           <div className="flex mt-2 md:mt-10 gap-4">
             <div className="flex mt-4 md:mt-10 gap-6 items-center">
               <div className="flex items-center space-x-4">
-                <span className="text-violet-300">Find me on LinkedIn & GitHub</span>
+                <span className="text-violet-300">{ BaseInfo.contact }</span>
                 <div className="flex items-center space-x-3 sm:space-x-10">
                   <ArrowRight
                     className="text-primary-400 animate-pulse transform transition-transform duration-300 ease-in-out hover:translate-x-1"

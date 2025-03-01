@@ -1,12 +1,13 @@
-"use client"
-import Image from "next/image"
-import { ExternalLink, Github } from "lucide-react"
-import { useState, useEffect } from "react"
+"use client";
+import Image from "next/image";
+import { ExternalLink, Github } from "lucide-react";
+import { useState, useEffect } from "react";
+import { projects } from "../../../Data/data.js";
 
 const ProjectSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const [touchStart, setTouchStart] = useState(null)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -17,42 +18,7 @@ const ProjectSection = () => {
     window.addEventListener("resize", checkMobile)
 
     return () => window.removeEventListener("resize", checkMobile)
-  }, [])
-
-  const projects = [
-    {
-      id: 1,
-      title: "Dynamic Blog Platform with Dashboard",
-      tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
-      description:
-        "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments and likes, and a control panel with differentiated roles (user and admin) for an efficient administration.",
-      image: "/images/blog-pt.png",
-    },
-    {
-      id: 2,
-      title: "Newsletter App",
-      tags: ["NextJs", "Cloudflare", "PayloadCMS"],
-      description:
-        "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. blog website with animated page transitions. This project uses MDX and NextJS to build the front-end. Framer Motion is used to create page transitions.",
-      image: "/images/blog-pt.png",
-    },
-    {
-      id: 3,
-      title: "Feedback Platform",
-      tags: ["TS", "Postgres", "DrizzleORM"],
-      description:
-        "A platform for collecting feedback from users. A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI.",
-      image: "/images/blog-pt.png",
-    },
-    {
-      id: 4,
-      title: "AI Quiz Generator",
-      tags: ["TS", "NextJS", "DrizzleORM"],
-      description:
-        "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. quiz generator that uses AI to generate questions.",
-      image: "/images/blog-pt.png",
-    },
-  ]
+  }, []);
 
   return (
     <section id="projects" className="px-0 py-20 sm:py-24 lg:py-40 sm:px-6 lg:px-8">
@@ -89,14 +55,14 @@ const ProjectSection = () => {
               className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {projects.map((project) => (
-                <div key={project.id} className="w-full flex-shrink-0">
+              {projects.map(({id, image, title, description, tags}) => (
+                <div key={id} className="w-full flex-shrink-0">
                   <div className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/50">
                     <div className="flex flex-col gap-4">
                       <div className="w-full h-[140px] flex-shrink-0 relative rounded-[2px] overflow-hidden">
                         <Image
-                          src={project.image || "/placeholder.svg"}
-                          alt={project.title}
+                          src={image || "/placeholder.svg"}
+                          alt={title}
                           fill
                           className="object-cover"
                         />
@@ -125,13 +91,13 @@ const ProjectSection = () => {
 
                       <div className="flex flex-col flex-grow">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+                          <h3 className="text-lg font-semibold text-white">{title}</h3>
                         </div>
 
-                        <DescriptionToggle description={project.description} />
+                        <DescriptionToggle description={description} />
 
                         <div className="flex flex-wrap gap-1">
-                          {project.tags.map((tag, index) => (
+                          {tags.map((tag, index) => (
                             <span
                               key={index}
                               className="px-2 py-0.5 text-xs rounded-full bg-primary-400/20 text-primary-200 border border-primary-400/30"
@@ -153,17 +119,17 @@ const ProjectSection = () => {
       {/* Desktop Grid */}
       {!isMobile && (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+          {projects.map(({id, image, title, description, tags}) => (
             <div
-              key={project.id}
+              key={id}
               className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/30 hover:border-primary-500/30 transition-colors hover:shadow-sm"
             >
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="flex flex-col gap-4 md:w-2/5 lg:w-2/5">
                   <div className="w-full h-[140px] md:h-[120px] lg:h-[140px] flex-shrink-0 relative rounded-[2px] overflow-hidden">
                     <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
+                      src={image || "/placeholder.svg"}
+                      alt={title}
                       fill
                       className="object-cover"
                     />
@@ -193,13 +159,13 @@ const ProjectSection = () => {
 
                 <div className="flex flex-col flex-grow md:w-3/5 lg:w-3/5">
                   <div className="flex items-center gap-2 mb-2">
-                    <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+                    <h3 className="text-lg font-semibold text-white">{title}</h3>
                   </div>
 
-                  <DescriptionToggle description={project.description} />
+                  <DescriptionToggle description={description} />
 
                   <div className="flex flex-wrap gap-1">
-                    {project.tags.map((tag, index) => (
+                    {tags.map((tag, index) => (
                       <span
                         key={index}
                         className="px-2 py-0.5 text-xs rounded-full bg-primary-500/20 text-primary-200 border border-primary-500/30"
