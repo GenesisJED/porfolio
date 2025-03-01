@@ -13,7 +13,7 @@ export const projects = [
         tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
         description:
             "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments and likes, and a control panel with differentiated roles (user and admin) for an efficient administration.",
-        image: "/images/blog-pt.png",
+        image: "/images/img-blog.png",
     },
     {
         id: 2,
