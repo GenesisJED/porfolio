@@ -22,7 +22,9 @@ const ProjectSection = () => {
 
   return (
     <section id="projects" className="px-0 py-20 sm:py-24 lg:py-40 sm:px-6 lg:px-8">
-      <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-400">My recent projects</h2>
+      <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-400">
+        My Latest Projects
+      </h2>
 
       {/* Mobile Slider */}
       {isMobile && (

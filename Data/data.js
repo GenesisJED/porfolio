@@ -9,35 +9,19 @@ export const BaseInfo = {
 export const projects = [
     {
         id: 1,
+        title: "AI Text-to-Image Generator",
+        tags: ["NextJs", "TypeScript", "Shadcn UI", "Tailwind", "Hugging Face"],
+        description:
+            "This web application enables the creation of images from text descriptions, utilizing AI-based image generation APIs. Developed with Next.js, it provides an interface for direct interaction with AI models, demonstrating the integration of frontend technologies and backend services.",
+        image: "/images/ai-img.png",
+    },
+    {
+        id: 2,
         title: "Dynamic Blog Platform with Dashboard",
         tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
         description:
             "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments and likes, and a control panel with differentiated roles (user and admin) for an efficient administration.",
         image: "/images/img-blog.png",
-    },
-    {
-        id: 2,
-        title: "Newsletter App",
-        tags: ["NextJs", "Cloudflare", "PayloadCMS"],
-        description:
-            "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. blog website with animated page transitions. This project uses MDX and NextJS to build the front-end. Framer Motion is used to create page transitions.",
-        image: "/images/blog-pt.png",
-    },
-    {
-        id: 3,
-        title: "Feedback Platform",
-        tags: ["TS", "Postgres", "DrizzleORM"],
-        description:
-            "A platform for collecting feedback from users. A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI.",
-        image: "/images/blog-pt.png",
-    },
-    {
-        id: 4,
-        title: "AI Quiz Generator",
-        tags: ["TS", "NextJS", "DrizzleORM"],
-        description:
-            "A tool that summarizes long articles into short paragraphs using AI.A tool that summarizes long articles into short paragraphs using AI. quiz generator that uses AI to generate questions.",
-        image: "/images/blog-pt.png",
     },
 ];
 
