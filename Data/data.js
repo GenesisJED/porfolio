@@ -14,6 +14,8 @@ export const projects = [
         description:
             "This web application enables the creation of images from text descriptions, utilizing AI-based image generation APIs. Developed with Next.js, it provides an interface for direct interaction with AI models, demonstrating the integration of frontend technologies and backend services.",
         image: "/images/ai-img.png",
+        url: "https://ai-image-generator-three-navy.vercel.app/",
+        github: "https://github.com/GenesisJED/ai-image-generator"
     },
     {
         id: 2,
@@ -22,6 +24,8 @@ export const projects = [
         description:
             "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments and likes, and a control panel with differentiated roles (user and admin) for an efficient administration.",
         image: "/images/img-blog.png",
+        url: "https://blog-genesis.onrender.com/",
+        github: "https://github.com/GenesisJED/fullstack-blog-mern"
     },
 ];
 

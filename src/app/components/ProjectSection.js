@@ -57,7 +57,7 @@ const ProjectSection = () => {
               className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {projects.map(({id, image, title, description, tags}) => (
+              {projects.map(({id, image, title, description, tags, url, github}) => (
                 <div key={id} className="w-full flex-shrink-0">
                   <div className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/50">
                     <div className="flex flex-col gap-4">
@@ -72,7 +72,7 @@ const ProjectSection = () => {
 
                       <div className="flex gap-2">
                         <a
-                          href="https://blog-genesis.onrender.com/"
+                          href={url}
                           className="flex-1 inline-flex items-center justify-center gap-2 text-sm text-gray-400 transition-colors hover:text-white px-3 py-2 rounded-md"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -81,7 +81,7 @@ const ProjectSection = () => {
                           <span>Project</span>
                         </a>
                         <a
-                          href="https://github.com/GenesisJED/fullstack-blog-mern"
+                          href={github}
                           className="flex-1 inline-flex items-center justify-center gap-2 text-sm text-gray-400 transition-colors hover:text-white px-3 py-2 rounded-md"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -121,7 +121,7 @@ const ProjectSection = () => {
       {/* Desktop Grid */}
       {!isMobile && (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map(({id, image, title, description, tags}) => (
+          {projects.map(({id, image, title, description, tags, url, github}) => (
             <div
               key={id}
               className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/30 hover:border-primary-500/30 transition-colors hover:shadow-sm"
@@ -139,7 +139,7 @@ const ProjectSection = () => {
 
                   <div className="flex md:flex-row lg:flex-col gap-2">
                     <a
-                      href="https://blog-genesis.onrender.com/"
+                      href={url}
                       className="flex-1 md:flex-none inline-flex items-center justify-center md:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 md:bg-transparent px-3 py-2 md:px-2 md:py-1 lg:px-0 lg:py-0 rounded-md md:rounded-sm lg:rounded-none"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -148,7 +148,7 @@ const ProjectSection = () => {
                       <span className="md:inline">View Project</span>
                     </a>
                     <a
-                      href="https://github.com/GenesisJED/fullstack-blog-mern"
+                      href={github}
                       className="flex-1 md:flex-none inline-flex items-center justify-center md:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 md:bg-transparent px-3 py-2 md:px-2 md:py-1 lg:px-0 lg:py-0 rounded-md md:rounded-sm lg:rounded-none"
                       target="_blank"
                       rel="noopener noreferrer"
