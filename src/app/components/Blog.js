@@ -20,14 +20,7 @@ const Blog = () => {
       }
     }
     fetchPosts()
-  }, [])
-
-  // Array of background images for each card
-  const backgroundImages = [
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pngtree-brain-lifting-weights-over-head-cartoon-success-win-design-vector-png-image_41207276.jpg-yDMTb9DTaKeTNiHKr9pRK64H0zpjnb.jpeg", // Brain lifting weights
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/roman-synkevych-wX2L8L-fGeA-unsplash.jpg-J7AdEIBc7ace5qOk21iyhgIc3dljVx.jpeg", // GitHub Octocat
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/james-harrison-vpOeXr5wmR4-unsplash.jpg-kavJjGLJRIb36Id6q2hEMvdBEJhp03.jpeg", // Laptop with code
-  ]
+  }, []);
 
   return (
     <section id="blog" className="mt-20 sm:mt-40 px-0 sm:px-6 lg:px-8 py-0 sm:py-12 rounded-lg">
