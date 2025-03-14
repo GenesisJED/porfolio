@@ -56,14 +56,9 @@ const HeroSection = () => {
           </p>
           <div className="flex mt-2 md:mt-10 gap-4">
             <div className="flex mt-4 md:mt-10 gap-6 items-center">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 md:space-x-10">
                 <span className="text-violet-300">{ BaseInfo.contact }</span>
-                <div className="flex items-center space-x-3 sm:space-x-10">
-                  <ArrowRight
-                    className="text-primary-400 animate-pulse transform transition-transform duration-300 ease-in-out hover:translate-x-1"
-                    size={30}
-                    strokeWidth={2}
-                  />
+                <div className="flex items-center space-x-3 md:space-x-5">
                   <Link
                     href="https://www.linkedin.com/in/g%C3%A9nesis-e-602b151b4/"
                     className="text-slate-400 hover:text-slate-200 transition-colors"

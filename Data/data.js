@@ -9,16 +9,6 @@ export const BaseInfo = {
 export const projects = [
     {
         id: 1,
-        title: "AI Text-to-Image Generator",
-        tags: ["NextJs", "TypeScript", "Shadcn UI", "Tailwind", "Hugging Face"],
-        description:
-            "This web application enables the creation of images from text descriptions, utilizing AI-based image generation APIs. Developed with Next.js, it provides an interface for direct interaction with AI models, demonstrating the integration of frontend technologies and backend services.",
-        image: "/images/ai-img.png",
-        url: "https://ai-image-generator-three-navy.vercel.app/",
-        github: "https://github.com/GenesisJED/ai-image-generator"
-    },
-    {
-        id: 2,
         title: "Dynamic Blog Platform with Dashboard",
         tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
         description:
@@ -26,6 +16,16 @@ export const projects = [
         image: "/images/img-blog.png",
         url: "https://blog-genesis.onrender.com/",
         github: "https://github.com/GenesisJED/fullstack-blog-mern"
+    },
+    {
+        id: 2,
+        title: "AI Text-to-Image Generator",
+        tags: ["NextJs", "TypeScript", "Shadcn UI", "Tailwind", "Hugging Face"],
+        description:
+            "This web application enables the creation of images from text descriptions, utilizing AI-based image generation APIs. Developed with Next.js, it provides an interface for direct interaction with AI models, demonstrating the integration of frontend technologies and backend services.",
+        image: "/images/ai-img.png",
+        url: "https://ai-image-generator-three-navy.vercel.app/",
+        github: "https://github.com/GenesisJED/ai-image-generator"
     },
 ];
 

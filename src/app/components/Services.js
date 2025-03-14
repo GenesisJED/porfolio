@@ -28,7 +28,7 @@ const Services = () => {
 
   return (
     <section id="services" className="px-0 py-1 sm:py-10 lg:py-15 sm:px-6 lg:px-8">
-      <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-400">
+      <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-300">
         My Services
       </h2>
 
@@ -71,7 +71,7 @@ const Services = () => {
                       <div className="flex flex-col gap-4">
                         <div className="mb-4">
                           {IconComponent && (
-                            <IconComponent className="w-10 h-10 text-primary-400" />
+                            <IconComponent className="w-10 h-10 text-gray-400" />
                           )}
                         </div>
                         <div className="flex flex-col flex-grow">
@@ -103,7 +103,7 @@ const Services = () => {
                 <div className="flex flex-col gap-4">
                   <div className="mb-4">
                     {IconComponent && (
-                      <IconComponent className="w-10 h-10 text-primary-400" />
+                      <IconComponent className="w-10 h-10 text-gray-400" />
                     )}
                   </div>
                   <div className="flex flex-col flex-grow">
