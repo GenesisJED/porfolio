@@ -25,7 +25,7 @@ const Blog = () => {
   return (
     <section id="blog" className="mt-20 sm:mt-40 px-0 sm:px-6 lg:px-8 py-0 sm:py-12 rounded-lg">
       <header>
-        <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-300">My blog posts</h2>
+        <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-300">My Blog Posts</h2>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {posts.map((post) => (
