@@ -12,7 +12,7 @@ export const projects = [
         title: "Dynamic Blog Platform with Dashboard",
         tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
         description:
-            "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments and likes, and a control panel with differentiated roles (user and admin) for an efficient administration.",
+            "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments.",
         image: "/images/img-blog.png",
         url: "https://blog-genesis.onrender.com/",
         github: "https://github.com/GenesisJED/fullstack-blog-mern"
@@ -22,7 +22,17 @@ export const projects = [
         title: "AI Text-to-Image Generator",
         tags: ["NextJs", "TypeScript", "Shadcn UI", "Tailwind", "Hugging Face"],
         description:
-            "This web application enables the creation of images from text descriptions, utilizing AI-based image generation APIs. Developed with Next.js, it provides an interface for direct interaction with AI models, demonstrating the integration of frontend technologies and backend services.",
+            "This web application enables the creation of images from text descriptions, utilizing AI-based image generation APIs. Developed with Next.js, it provides an interface for direct interaction with AI models.",
+        image: "/images/ai-img.png",
+        url: "https://ai-image-generator-three-navy.vercel.app/",
+        github: "https://github.com/GenesisJED/ai-image-generator"
+    },
+    {
+        id: 3,
+        title: "AI Text-to-Image Generator",
+        tags: ["NextJs", "TypeScript", "Shadcn UI", "Tailwind", "Hugging Face"],
+        description:
+            "This web application enables the creation of images from text descriptions, utilizing AI-based image generation APIs. Developed with Next.js, it provides an interface for direct interaction with AI models.",
         image: "/images/ai-img.png",
         url: "https://ai-image-generator-three-navy.vercel.app/",
         github: "https://github.com/GenesisJED/ai-image-generator"

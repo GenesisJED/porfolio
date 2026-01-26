@@ -22,8 +22,52 @@ body {
 
 @layer components {
   .payload-richtext ul {
-@apply list-disc list-inside;
+    @apply list-disc list-inside;
   }
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #d946ef, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #d946ef, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-pink {
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.3);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 .pattern-bg {
@@ -52,5 +96,3 @@ body {
   -webkit-mask: radial-gradient(ellipse 70% 60% at center, rgb(15 23 42) 0%, transparent 70%);
   mask: radial-gradient(ellipse 70% 60% at center, rgb(15 23 42) 0%, transparent 70%);
 }
-
-

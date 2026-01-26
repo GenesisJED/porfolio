@@ -1,203 +1,58 @@
-"use client";
-import Image from "next/image";
-import { ExternalLink, Github } from "lucide-react";
-import { useState, useEffect } from "react";
+import React from 'react';
+import Image from 'next/image';
 import { projects } from "../../../Data/data.js";
 
 const ProjectSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [touchStart, setTouchStart] = useState(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024)
-    }
-
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-
-    return () => window.removeEventListener("resize", checkMobile)
-  }, []);
-
   return (
-    <section id="projects" className="px-0 py-20 sm:py-24 lg:py-40 sm:px-6 lg:px-8">
-      <h2 className="text-xl md:text-3xl font-bold mb-8 sm:mb-12 text-center text-slate-300">
-        My Projects
-      </h2>
-
-      {/* Mobile Slider */}
-      {isMobile && (
-        <div className="relative">
-          <div
-            className="overflow-hidden"
-            onTouchStart={(e) => {
-              const touch = e.touches[0]
-              setTouchStart(touch.clientX)
-            }}
-            onTouchMove={(e) => {
-              if (touchStart === null) return
-
-              const touch = e.touches[0]
-              const diff = touchStart - touch.clientX
-
-              if (diff > 50 && currentSlide < projects.length - 1) {
-                setCurrentSlide((prev) => prev + 1)
-                setTouchStart(null)
-              } else if (diff < -50 && currentSlide > 0) {
-                setCurrentSlide((prev) => prev - 1)
-                setTouchStart(null)
-              }
-            }}
-            onTouchEnd={() => {
-              setTouchStart(null)
-            }}
-          >
-            <div
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {projects.map(({id, image, title, description, tags, url, github}) => (
-                <div key={id} className="w-full flex-shrink-0">
-                  <div className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/50">
-                    <div className="flex flex-col gap-4">
-                      <div className="w-full h-[140px] flex-shrink-0 relative rounded-[2px] overflow-hidden">
-                        <Image
-                          src={image || "/placeholder.svg"}
-                          alt={title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-
-                      <div className="flex gap-2">
-                        <a
-                          href={url}
-                          className="flex-1 inline-flex items-center justify-center gap-2 text-sm text-gray-400 transition-colors hover:text-white px-3 py-2 rounded-md"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="h-5 w-5" />
-                          <span>Project</span>
-                        </a>
-                        <a
-                          href={github}
-                          className="flex-1 inline-flex items-center justify-center gap-2 text-sm text-gray-400 transition-colors hover:text-white px-3 py-2 rounded-md"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github className="h-5 w-5" />
-                          <span>Repo</span>
-                        </a>
-                      </div>
-
-                      <div className="flex flex-col flex-grow">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-lg font-semibold text-white">{title}</h3>
-                        </div>
-
-                        <DescriptionToggle description={description} />
-
-                        <div className="flex flex-wrap gap-1">
-                          {tags.map((tag, index) => (
-                            <span
-                              key={index}
-                              className="px-2 py-0.5 text-xs rounded-full bg-primary-400/20 text-primary-200 border border-primary-400/30"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section id="skills">
+      <div className="flex justify-between items-end mb-16">
+        <div>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight">
+            Featured <span className="gradient-text italic">Creations</span>
+          </h2>
+          <p className="text-slate-400">A selection of my most impactful digital solutions.</p>
         </div>
-      )}
+        <a href="#" className="hidden sm:flex items-center gap-2 text-pink-400 font-bold hover:gap-4 transition-all">
+          View All Projects
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-0">
+        {projects.map(({ id, image, title, description, tags, url, github }) => (
+          <div key={id} className="group glass rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:border-pink-500/30">
+            <div className="relative aspect-video overflow-hidden">
+              <Image
+                src={image || "/placeholder.svg"}
+                alt={title}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
 
-      {/* Desktop Grid */}
-      {!isMobile && (
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map(({id, image, title, description, tags, url, github}) => (
-            <div
-              key={id}
-              className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/30 hover:border-primary-500/30 transition-colors hover:shadow-sm"
-            >
-              <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-                <div className="flex flex-col gap-4 md:w-2/5 lg:w-2/5">
-                  <div className="w-full h-[140px] md:h-[120px] lg:h-[140px] flex-shrink-0 relative rounded-[2px] overflow-hidden">
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+            <div className="p-8">
+              <h3 className="text-2xl font-bold mb-3 group-hover:text-pink-400 transition-colors">{title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                {description}
+              </p>
 
-                  <div className="flex md:flex-row lg:flex-col gap-2">
-                    <a
-                      href={url}
-                      className="flex-1 md:flex-none inline-flex items-center justify-center md:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 md:bg-transparent px-3 py-2 md:px-2 md:py-1 lg:px-0 lg:py-0 rounded-md md:rounded-sm lg:rounded-none"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      <span className="md:inline">View Project</span>
-                    </a>
-                    <a
-                      href={github}
-                      className="flex-1 md:flex-none inline-flex items-center justify-center md:justify-start gap-2 text-sm text-gray-400 transition-colors hover:text-white bg-gray-700/20 md:bg-transparent px-3 py-2 md:px-2 md:py-1 lg:px-0 lg:py-0 rounded-md md:rounded-sm lg:rounded-none"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github className="h-5 w-4" />
-                      <span className="md:inline">View Repo</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex flex-col flex-grow md:w-3/5 lg:w-3/5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <h3 className="text-lg font-semibold text-white">{title}</h3>
-                  </div>
-
-                  <DescriptionToggle description={description} />
-
-                  <div className="flex flex-wrap gap-1">
-                    {tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="px-2 py-0.5 text-xs rounded-full bg-primary-500/20 text-primary-200 border border-primary-500/30"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div className="flex gap-4">
+                <a href={url} className="flex-1 py-3 text-center gradient-bg rounded-xl text-sm font-bold shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all">
+                  Live Demo
+                </a>
+                <a href={github} className="px-5 py-3 glass rounded-xl border border-white/5 hover:bg-white/10 transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                  </svg>
+                </a>
               </div>
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
     </section>
-  )
-}
-
-const DescriptionToggle = ({ description }) => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const shortDescription = description.split(" ").slice(0, 20).join(" ") + "..."
-
-  return (
-    <p className="text-sm text-gray-400 mb-4">
-      {isExpanded ? description : shortDescription}
-      <button onClick={() => setIsExpanded(!isExpanded)} className="text-primary-400 hover:underline ml-1">
-        {isExpanded ? "See Less" : "See More"}
-      </button>
-    </p>
-  )
-}
+  );
+};
 
 export default ProjectSection;
