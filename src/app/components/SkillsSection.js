@@ -5,11 +5,11 @@ const SkillBadge = ({ name, priority }) => {
   const getStyles = () => {
     switch (priority) {
       case 'high':
-        return 'px-3 py-1.5 text-xs font-semibold border border-pink-500/20 bg-pink-500/5 text-slate-100';
+        return 'px-3 py-1.5 text-[10px] font-semibold border border-pink-500/20 bg-pink-500/5 text-gray-600';
       case 'medium':
-        return 'px-2.5 py-1 text-[10px] font-medium border border-white/10 bg-white/5 text-slate-400';
+        return 'px-2.5 py-1 text-[10px] font-medium border border-white/10 bg-white/5 text-slate-600';
       default:
-        return 'px-2 py-0.5 text-[10px] border border-white/5 bg-transparent text-slate-600';
+        return 'px-2 py-0.5 text-[10px] font-medium border border-white/5 bg-transparent text-gray-600';
     }
   };
 
@@ -24,9 +24,9 @@ const SkillsSection = () => {
   const categories = ['Frontend', 'Backend', 'DevOps', 'Tools'];
 
   return (
-    <section id="skills" className="py-16 lg:py-40 relative overflow-hidden">
-      <div className="mx-auto px-6">
-        <div className="mb-16 text-center">
+    <section id="skills" className="py-0 lg:py-20 mt-6 relative overflow-hidden">
+      <div className="mx-auto px-0">
+        <div className="mb-8 md:mb-16 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight">
             Technical <span className="gradient-text italic">Ecosystem</span>
           </h2>
@@ -37,20 +37,20 @@ const SkillsSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {categories.map((cat) => (
-            <div key={cat} className="p-0 lg:p-5 rounded-xl border border-white/[0.03] bg-slate-900/10 hover:bg-slate-900/30 transition-all group">
+            <div key={cat} className="p-4 lg:p-5 rounded-xl border border-white/[0.03] bg-slate-700/10 hover:bg-slate-900/30 transition-all group">
               <div className="flex items-center gap-2 mb-4">
-                <div className={`w-1 h-1 rounded-full ${cat === 'Frontend' ? 'bg-pink-500' : 'bg-purple-500'}`}></div>
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 group-hover:text-slate-300 transition-colors">
+                <div className={`w-1 h-1 rounded-full ${cat === 'Frontend' ? 'bg-pink-500' : 'bg-primary-500'}`}></div>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 group-hover:text-gray-500 transition-colors">
                   {cat}
                 </h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-1.5">
                 {SKILLS.filter(s => s.category === cat).map((skill) => (
-                  <SkillBadge 
-                    key={skill.name} 
-                    name={skill.name} 
-                    priority={skill.priority} 
+                  <SkillBadge
+                    key={skill.name}
+                    name={skill.name}
+                    priority={skill.priority}
                   />
                 ))}
               </div>
@@ -58,7 +58,7 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center opacity-30">
+        <div className="mt-12 mb-12 text-center opacity-30">
           <p className="text-[8px] uppercase tracking-[0.5em] text-slate-500 font-medium">
             Building with precision and care
           </p>

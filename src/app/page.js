@@ -7,10 +7,12 @@ export const runtime = "edge";
 
 export default function Home() {
   return (
-    <div className="container mx-auto p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] ">
+    <div className="font-[family-name:var(--font-geist-sans)]">
       <HeroSection />
-      <SkillsSection />
-      <ProjectSection />
+      <div className="container mx-auto px-8 pb-20 sm:px-20">
+        <SkillsSection />
+        <ProjectSection />
+      </div>
       <ContactForm />
     </div>
   );

@@ -1,11 +1,18 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { projects } from "../../../Data/data.js";
 
 const ProjectSection = () => {
+  const [expandedId, setExpandedId] = useState(null);
+
+  const toggleExpand = (id) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
-    <section id="skills">
-      <div className="flex justify-between items-end mb-16">
+    <section id="projects">
+      <div className="flex justify-between items-end mb-8 md:mb-16">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight">
             Featured <span className="gradient-text italic">Creations</span>
@@ -21,7 +28,7 @@ const ProjectSection = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-0">
         {projects.map(({ id, image, title, description, tags, url, github }) => (
-          <div key={id} className="group glass rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:border-pink-500/30">
+          <div key={id} className="group glass rounded-3xl border border-white/10 shadow-lg shadow-black/20 overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-500">
             <div className="relative aspect-video overflow-hidden">
               <Image
                 src={image || "/placeholder.svg"}
@@ -32,13 +39,23 @@ const ProjectSection = () => {
             </div>
 
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-3 group-hover:text-pink-400 transition-colors">{title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+              <h3 className="text-1 font-bold mb-3 text-slate-700 group-hover:text-pink-400 transition-colors">{title}</h3>
+              <p className={`text-slate-500 text-sm leading-relaxed mb-2 ${expandedId === id ? '' : 'line-clamp-3'}`}>
                 {description}
               </p>
 
+              <button
+                onClick={() => toggleExpand(id)}
+                className="text-primary-500 text-xs font-bold hover:text-primary-400 transition-colors mb-6 flex items-center gap-1"
+              >
+                {expandedId === id ? 'Ver menos' : 'Ver más'}
+                <svg xmlns="http://www.w3.org/2000/svg" className={`h-3 w-3 transition-transform ${expandedId === id ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
               <div className="flex gap-4">
-                <a href={url} className="flex-1 py-3 text-center gradient-bg rounded-xl text-sm font-bold shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all">
+                <a href={url} className="flex-1 py-3 text-gray-600 text-center bg-slate-200 rounded-xl text-sm font-bold shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all">
                   Live Demo
                 </a>
                 <a href={github} className="px-5 py-3 glass rounded-xl border border-white/5 hover:bg-white/10 transition-all">
