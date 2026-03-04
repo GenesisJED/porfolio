@@ -1,44 +1,14 @@
 "use client";
 import { Github, Linkedin } from "lucide-react";
-import { useState } from "react";
 import Link from "next/link";
 import { BaseInfo } from "../../../Data/data.js";
 
 const HeroSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseMove = (ev) => {
-    if (!isHovering) return;
-    const rect = ev.currentTarget.getBoundingClientRect();
-    const x = ((ev.clientX - rect.left) / rect.width) * 100;
-    const y = ((ev.clientY - rect.top) / rect.height) * 100;
-    setMousePosition({ x, y });
-  };
-
   return (
-    <section
-      className="relative w-full h-full overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-
-
+    <section className="relative w-full h-full overflow-hidden">
       <div
-        className="pattern-bg relative w-full h-full default-fade"
-        style={{
-          opacity: isHovering ? 0 : 0.3,
-          transition: "opacity 0.5s ease-in-out",
-        }}
-      ></div>
-      <div
-        className="pattern-bg"
-        style={{
-          WebkitMask: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgb(15 23 42) 0%, transparent 35%)`,
-          mask: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgb(15 23 42) 0%, transparent 35%)`,
-          opacity: isHovering ? 0.3 : 0,
-        }}
+        className="pattern-bg hero-fixed-fade"
+        style={{ opacity: 0.3 }}
       ></div>
 
       <div className="container mx-auto px-8 sm:px-20 py-5 md:py-20 flex flex-col md:flex-row items-center justify-between gap-10">
