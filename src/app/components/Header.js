@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className="py-4 transition-all duration-300 border-b border-primary-400/20">
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold tracking-tighter">
-          <span className="gradient-text">Ge dev</span>
+          <span className="gradient-text italic">GE</span>
         </a>
 
         <div className="flex gap-4 md:gap-8 text-sm font-bold text-gray-600">

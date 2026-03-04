@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Github, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import { BaseInfo } from "../../../Data/data.js";
@@ -23,6 +23,8 @@ const HeroSection = () => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
+
+
       <div
         className="pattern-bg relative w-full h-full default-fade"
         style={{
@@ -33,17 +35,18 @@ const HeroSection = () => {
       <div
         className="pattern-bg"
         style={{
-          WebkitMask: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%,  rgb(15 23 42) 0%, transparent 35%)`,
-          mask: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%,  rgb(15 23 42) 0%, transparent 35%)`,
+          WebkitMask: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgb(15 23 42) 0%, transparent 35%)`,
+          mask: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgb(15 23 42) 0%, transparent 35%)`,
           opacity: isHovering ? 0.3 : 0,
         }}
       ></div>
 
-      <div className="container mx-auto px-8 sm:px-20 py-12 md:py-32 flex flex-col md:flex-row items-center justify-between">
-        <div className="md:w-3/4">
+      <div className="container mx-auto px-8 sm:px-20 py-5 md:py-20 flex flex-col md:flex-row items-center justify-between gap-10">
+        {/* Texto izquierda */}
+        <div className="md:w-1/2 w-full">
           <h1 className="text-5xl font-semibold tracking-light">
-            <span className="block text-primary-500 text-xl md:text-3xl mt-5">{BaseInfo.name}</span>
-            <p className="block mt-2 text-2xl md:text-4xl">{BaseInfo.position}</p>
+            <span className="block text-primary-500 text-xl md:text-3xl mt-5 italic">{BaseInfo.name}</span>
+            <p className="block mt-2 font-semibold text-slate-600 text-2xl md:text-4xl">{BaseInfo.position}</p>
           </h1>
 
           <p className="mt-2 sm:text-xl md:mt-6 text-black-300 leading-6 md:leading-8">
@@ -52,7 +55,7 @@ const HeroSection = () => {
           <div className="flex mt-2 md:mt-10 gap-4">
             <div className="flex mt-4 md:mt-10 gap-6 items-center">
               <div className="flex items-center space-x-2 md:space-x-10">
-                <span className="text-primary-500">{BaseInfo.contact}</span>
+                <span className="text-sm md:text-md text-blue-900">{BaseInfo.contact}</span>
                 <div className="flex items-center space-x-3 md:space-x-5">
                   <Link
                     href="https://www.linkedin.com/in/g%C3%A9nesis-e-602b151b4/"
@@ -73,6 +76,17 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Imagen flotante derecha */}
+        <div className="md:w-1/2 w-full flex justify-center md:justify-end">
+          <div className="hero-dev-float hero-image-wrapper">
+            <img
+              src="/images/cat-hero2.png"
+              alt="Desarrolladora de software"
+              className="hero-image"
+            />
           </div>
         </div>
       </div>
