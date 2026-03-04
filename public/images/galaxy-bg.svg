@@ -1,0 +1,31 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1">
+    <!-- Stars (small crosses) -->
+    <path d="M40 35 v10 M35 40 h10" stroke-width="1.5" />
+    <path d="M250 85 v8 M246 89 h8" />
+    <path d="M120 220 v12 M114 226 h12" stroke-width="1.5" />
+    
+    <!-- Constellation -->
+    <circle cx="80" cy="120" r="2" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <circle cx="110" cy="90" r="2" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <circle cx="150" cy="100" r="2" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <circle cx="130" cy="140" r="2" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <polyline points="80,120 110,90 150,100 130,140 80,120" stroke-dasharray="2, 3" />
+
+    <!-- Planet/Orbit -->
+    <ellipse cx="220" cy="230" rx="30" ry="10" transform="rotate(-20 220 230)" />
+    <circle cx="220" cy="230" r="12" fill="rgba(255, 255, 255, 0.03)" />
+    <circle cx="205" cy="215" r="3" fill="rgba(255, 255, 255, 0.05)" stroke="none" /> <!-- Moon -->
+
+    <!-- Shooting star -->
+    <line x1="280" y1="20" x2="250" y2="50" stroke-width="1.5" />
+    <line x1="275" y1="20" x2="280" y2="20" stroke-width="1.5" stroke-dasharray="1, 2" />
+    
+    <!-- Tiny background stars -->
+    <circle cx="30" cy="180" r="1" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <circle cx="180" cy="40" r="1" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <circle cx="270" cy="150" r="1" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <circle cx="80" cy="270" r="1.5" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+    <circle cx="190" cy="170" r="1" fill="rgba(255, 255, 255, 0.1)" stroke="none" />
+  </g>
+</svg>

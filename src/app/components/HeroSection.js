@@ -16,7 +16,7 @@ const HeroSection = () => {
         <div className="md:w-1/2 w-full">
           <h1 className="text-5xl font-semibold tracking-light">
             <span className="block text-primary-500 text-xl md:text-3xl mt-5 italic">{BaseInfo.name}</span>
-            <p className="block mt-2 font-semibold text-slate-600 text-2xl md:text-4xl">{BaseInfo.position}</p>
+            <p className="block mt-2 font-semibold text-white-600 text-2xl md:text-4xl">{BaseInfo.position}</p>
           </h1>
 
           <p className="mt-2 sm:text-xl md:mt-6 text-black-300 leading-6 md:leading-8">
@@ -25,11 +25,11 @@ const HeroSection = () => {
           <div className="flex mt-2 md:mt-10 gap-4">
             <div className="flex mt-4 md:mt-10 gap-6 items-center">
               <div className="flex items-center space-x-2 md:space-x-10">
-                <span className="text-sm md:text-md text-blue-900">{BaseInfo.contact}</span>
+                <span className="text-sm md:text-md text-blue-500">{BaseInfo.contact}</span>
                 <div className="flex items-center space-x-3 md:space-x-5">
                   <Link
                     href="https://www.linkedin.com/in/g%C3%A9nesis-e-602b151b4/"
-                    className="text-slate-400 hover:text-slate-500 transition-colors"
+                    className="text-slate-400 hover:text-blue-500 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -37,7 +37,7 @@ const HeroSection = () => {
                   </Link>
                   <Link
                     href="https://github.com/GenesisJED"
-                    className="text-slate-400 hover:text-slate-500 transition-colors"
+                    className="text-slate-400 hover:text-gray-100 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

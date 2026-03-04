@@ -1,0 +1,12 @@
+<svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1.5">
+    <circle cx="30" cy="40" r="12" />
+    <rect x="180" y="30" width="18" height="18" rx="3" transform="rotate(20 189 39)" />
+    <polygon points="120,150 135,175 105,175" transform="rotate(-15 120 162)" />
+    <circle cx="210" cy="180" r="8" fill="rgba(255, 255, 255, 0.04)" />
+    <path d="M50 200 h8 v-8 h3 v8 h8 v3 h-8 v8 h-3 v-8 h-8 z" />
+    <rect x="80" y="90" width="10" height="10" transform="rotate(45 85 95)" />
+    <path d="M220 100 h12 M226 94 v12" stroke-linecap="round" />
+    <circle cx="150" cy="70" r="4" fill="rgba(255, 255, 255, 0.05)" stroke="none" />
+  </g>
+</svg>

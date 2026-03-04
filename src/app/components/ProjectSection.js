@@ -11,7 +11,7 @@ const ProjectSection = () => {
   };
 
   return (
-    <section id="projects" className="relative py-10 md:py-20 dark:bg-slate-200/30 w-screen -mx-[50vw] left-[50%] right-[50%]">
+    <section id="projects" className="relative py-10 md:py-20 dark:bg-slate-600/30 w-screen -mx-[50vw] left-[50%] right-[50%]">
       <div className="container mx-auto px-8 sm:px-20">
         <div className="flex justify-between items-end mb-8 md:mb-16">
           <div>
@@ -29,7 +29,7 @@ const ProjectSection = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-0">
           {projects.map(({ id, image, title, description, tags, url, github }) => (
-            <div key={id} className="group bg-white rounded-3xl border border-white/10 shadow-lg shadow-black/20 overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-500">
+            <div key={id} className="group bg-gray-800 rounded-3xl border border-white/10 shadow-lg shadow-black/20 overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-500">
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={image || "/placeholder.svg"}
@@ -40,8 +40,8 @@ const ProjectSection = () => {
               </div>
 
               <div className="p-8">
-                <h3 className="text-1 font-bold mb-3 text-slate-700 group-hover:text-pink-400 transition-colors">{title}</h3>
-                <p className={`text-slate-500 text-sm leading-relaxed mb-2 ${expandedId === id ? '' : 'line-clamp-3'}`}>
+                <h3 className="text-1 font-bold mb-3 text-white-700 group-hover:text-pink-400 transition-colors">{title}</h3>
+                <p className={`text-slate-300 text-sm leading-relaxed mb-2 ${expandedId === id ? '' : 'line-clamp-3'}`}>
                   {description}
                 </p>
 

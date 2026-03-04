@@ -16,7 +16,7 @@ const Navbar = () => {
           <span className="gradient-text italic">GE</span>
         </a>
 
-        <div className="flex gap-4 md:gap-8 text-sm font-bold text-gray-600">
+        <div className="flex gap-4 md:gap-8 text-sm font-bold text-white-500">
           <a href="#projects" className="hover:text-primary-600 transition-colors mt-2">Projects</a>
           <a href="#skills" className="hover:text-primary-600 transition-colors mt-2">Skills</a>
           <a href="#contact" className="hover:text-primary-400 transition-colors px-4 py-2 gradient-bg rounded-full text-white shadow-lg shadow-pink-500/20">Contact</a>

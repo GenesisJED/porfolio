@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #232d36;
+  --background: #28303f;
+  --foreground: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #232d36;
+    --background: #20203bf1;
+    --foreground: #fff;
   }
 }
 
@@ -67,42 +67,15 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-/* EL PATRÓN: Ahora es una capa independiente de líneas grises con fondo claro rosado */
 .pattern-bg {
   position: absolute;
   inset: 0;
   bottom: -6rem;
   z-index: -1;
-  opacity: 0.8;
-  background-color: rgba(93, 86, 90, 0.808);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L20 10 M40 10 L50 10 M10 50 L20 50 M40 50 L50 50 M10 10 L10 20 M10 40 L10 50 M50 10 L50 20 M50 40 L50 50' stroke='rgba(51, 65, 85, 0.5)' stroke-width='1'/%3E%3Cpath d='M30 15 L35 20 L30 25 M25 35 L30 40 L35 35' stroke='rgba(51, 65, 85, 0.5)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
-  background-size: 60px 60px;
-  background-position: center center;
-}
-
-/* EL SPOTLIGHT: Solo el degradado rosado vibrante */
-.gradient-spotlight {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
-}
-
-.default-fade {
-  -webkit-mask: radial-gradient(ellipse 70% 60% at center, black 0%, transparent 70%);
-  mask: radial-gradient(ellipse 70% 60% at center, black 0%, transparent 70%);
-}
-
-.hero-fixed-fade {
-  -webkit-mask: radial-gradient(circle at 50% 100%, black 0%, transparent 60%);
-  mask: radial-gradient(circle at 50% 100%, black 0%, transparent 60%);
-}
-
-@media (min-width: 768px) {
-  .hero-fixed-fade {
-    -webkit-mask: radial-gradient(circle at 90% 10%, black 0%, transparent 40%);
-    mask: radial-gradient(circle at 90% 10%, black 0%, transparent 40%);
-  }
+  opacity: 0.9;
+  background-image: url('/images/galaxy-bg.svg');
+  background-size: 300px 300px;
+  background-repeat: repeat;
 }
 
 /* ── Hero Section ── */
