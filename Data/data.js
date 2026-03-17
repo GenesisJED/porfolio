@@ -9,16 +9,6 @@ export const BaseInfo = {
 export const projects = [
     {
         id: 1,
-        title: "Dynamic Blog Platform with Dashboard",
-        tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
-        description:
-            "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments.",
-        image: "/images/img-blog.png",
-        url: "https://blog-genesis.onrender.com/",
-        github: "https://github.com/GenesisJED/fullstack-blog-mern"
-    },
-    {
-        id: 2,
         title: "AI Text-to-Image Generator",
         tags: ["NextJs", "TypeScript", "Shadcn UI", "Tailwind", "Hugging Face"],
         description:
@@ -26,6 +16,17 @@ export const projects = [
         image: "/images/ai-img.png",
         url: "https://ai-image-generator-three-navy.vercel.app/",
         github: "https://github.com/GenesisJED/ai-image-generator"
+    },
+    {
+        id: 2,
+        title: "Dynamic Blog Platform with Dashboard",
+        tags: ["React", "Node", "Express", "Firebase", "MongoDB", "Supabase", "Tailwind"],
+        description:
+            "Full stack development of a blogging platform with complete functionalities. Authentication with Google, creation and management of posts by authenticated users, interaction through comments.",
+        image: "/images/img-blog.png",
+        url: "https://blog-genesis.onrender.com/",
+        github: "https://github.com/GenesisJED/fullstack-blog-mern"
+
     },
     {
         id: 3,
