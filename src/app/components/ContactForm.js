@@ -31,7 +31,7 @@ const ContactForm = () => {
 
   return (
     <section id="contact" className="w-full mt-24 md:mt-32 mb-12 md:mb-16">
-      <div className="w-full max-w-[1280px] mx-auto px-5 md:px-6">
+      <div className="w-full max-w-[1280px] mx-auto px-3 md:px-6">
         <div className="glass-card rounded-2xl p-6 sm:p-10 md:p-16 flex flex-col lg:flex-row gap-10 lg:gap-16 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 bg-primary/10 w-96 h-96 blur-[100px] rounded-full z-0 pointer-events-none"></div>
 

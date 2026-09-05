@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative w-full min-h-[80vh] flex items-center justify-center pt-28 pb-12 md:pt-32 md:pb-16"
+      className="relative w-full overflow-hidden min-h-[80vh] flex items-center justify-center pt-28 pb-12 md:pt-32 md:pb-16"
     >
       <div
         className="pattern-bg"

@@ -35,11 +35,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         suppressHydrationWarning
-        className={`${inter.variable} ${sora.variable} ${jetbrains.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} ${sora.variable} ${jetbrains.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}
       >
         <Navbar />
         <div className="flex-grow">{children}</div>
         <Footer />
+        <BottomNav />
       </body>
     </html>
   );
