@@ -1,72 +1,85 @@
 "use client";
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { projects } from "../../../Data/data.js";
 
 const ProjectSection = () => {
-  const [expandedId, setExpandedId] = useState(null);
-
-  const toggleExpand = (id) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
-
   return (
-    <section id="projects" className="relative py-10 md:py-20 dark:bg-slate-600/30 w-screen -mx-[50vw] left-[50%] right-[50%]">
-      <div className="container mx-auto px-8 sm:px-20">
-        <div className="flex justify-between items-end mb-8 md:mb-16">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight">
-              Featured <span className="gradient-text italic">Creations</span>
-            </h2>
-            <p className="text-slate-500">A selection of my most impactful digital solutions.</p>
-          </div>
-          <a href="#" className="hidden sm:flex items-center gap-2 text-pink-400 font-bold hover:gap-4 transition-all">
-            View All Projects
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+    <section id="projects" className="w-full mt-24 md:mt-32">
+      <div className="w-full max-w-[1280px] mx-auto px-5 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-headline text-3xl md:text-4xl lg:text-[40px] font-bold text-on-surface mb-4">
+            Featured <span className="text-primary italic">Creations</span>
+          </h2>
+          <p className="text-base md:text-lg text-on-surface-variant flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <span>A selection of my most impactful digital solutions.</span>
+            <Link
+              href="#"
+              className="text-primary font-mono text-sm hover:underline flex items-center gap-1"
+            >
+              View All Projects
+              <span aria-hidden="true">→</span>
+            </Link>
+          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-0">
-          {projects.map(({ id, image, title, description, tags, url, github }) => (
-            <div key={id} className="group bg-gray-800 rounded-3xl border border-white/10 shadow-lg shadow-black/20 overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-500">
-              <div className="relative aspect-video overflow-hidden">
-                <Image
-                  src={image || "/placeholder.svg"}
-                  alt={title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {projects.map(({ id, image, title, description, url, github }) => (
+            <article
+              key={id}
+              className="glass-card rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2"
+            >
+              <div className="relative h-48 bg-surface-container-high overflow-hidden border-b border-white/5">
+                {image ? (
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-primary-container/30 to-tertiary/20 flex items-center justify-center">
+                    <span className="text-primary font-headline text-lg px-4 text-center">
+                      {title}
+                    </span>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-50"></div>
               </div>
 
-              <div className="p-8">
-                <h3 className="text-1 font-bold mb-3 text-white-700 group-hover:text-pink-400 transition-colors">{title}</h3>
-                <p className={`text-slate-300 text-sm leading-relaxed mb-2 ${expandedId === id ? '' : 'line-clamp-3'}`}>
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <h3 className="font-headline text-xl text-on-surface mb-4 font-bold group-hover:text-primary transition-colors">
+                  {title}
+                </h3>
+                <p className="text-on-surface-variant text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
                   {description}
                 </p>
 
-                <button
-                  onClick={() => toggleExpand(id)}
-                  className="text-primary-500 text-xs font-bold hover:text-primary-400 transition-colors mb-6 flex items-center gap-1"
-                >
-                  {expandedId === id ? 'Ver menos' : 'Ver más'}
-                  <svg xmlns="http://www.w3.org/2000/svg" className={`h-3 w-3 transition-transform ${expandedId === id ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-
-                <div className="flex gap-4">
-                  <a href={url} className="flex-1 py-3 text-gray-600 text-center bg-slate-200 rounded-xl text-sm font-bold shadow-lg shadow-pink-500/10 hover:shadow-pink-500/20 transition-all">
+                <div className="flex items-center gap-4 mt-auto">
+                  <Link
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-surface-container-high hover:bg-surface-variant text-on-surface py-2 px-6 rounded-lg font-mono text-sm transition-colors border border-white/10 flex-grow text-center"
+                  >
                     Live Demo
-                  </a>
-                  <a href={github} className="px-5 py-3 glass rounded-xl border border-white/5 hover:bg-white/10 transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                  </Link>
+                  <Link
+                    href={github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-surface-container-high hover:bg-surface-variant p-2 rounded-lg text-on-surface border border-white/10 transition-colors"
+                    aria-label="GitHub repository"
+                  >
+                    <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

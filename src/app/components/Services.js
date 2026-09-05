@@ -11,11 +11,13 @@ const iconMap = {
 };
 
 const Services = () => {
+  const [mounted, setMounted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
 
   useEffect(() => {
+    setMounted(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
@@ -32,8 +34,37 @@ const Services = () => {
         My Services
       </h2>
 
+      {/* Fallback mientras se monta - evita hydration mismatch */}
+      {!mounted && (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {services.map(({ id, icon, title, description }) => {
+            const IconComponent = iconMap[icon];
+            return (
+              <div
+                key={id}
+                className="bg-gray-700/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-700/30"
+              >
+                <div className="flex flex-col gap-4">
+                  <div className="mb-4">
+                    {IconComponent && (
+                      <IconComponent className="w-10 h-10 text-gray-400" />
+                    )}
+                  </div>
+                  <div className="flex flex-col flex-grow">
+                    <h3 className="text-lg font-semibold text-white mb-2">
+                      {title}
+                    </h3>
+                    <p className="text-sm text-gray-400">{description}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       {/* Mobile Slider */}
-      {isMobile && (
+      {mounted && isMobile && (
         <div className="relative">
           <div
             className="overflow-hidden"
@@ -91,7 +122,7 @@ const Services = () => {
       )}
 
       {/* Desktop Grid */}
-      {!isMobile && (
+      {mounted && !isMobile && (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {services.map(({ id, icon, title, description }) => {
             const IconComponent = iconMap[icon];

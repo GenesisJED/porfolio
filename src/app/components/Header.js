@@ -5,22 +5,41 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className="py-4 transition-all duration-300 border-b border-primary-400/20">
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold tracking-tighter">
-          <span className="gradient-text italic">GE</span>
+    <nav className="fixed top-0 w-full z-50 bg-surface/10 backdrop-blur-md border-b border-white/10 shadow-sm transition-all duration-300">
+      <div className="flex justify-between items-center max-w-[1280px] mx-auto px-5 md:px-6 py-4">
+        <a
+          href="#"
+          className="font-headline text-2xl font-bold italic text-primary hover:opacity-80 transition-all duration-300 active:scale-95"
+        >
+          GE
         </a>
 
-        <div className="flex gap-4 md:gap-8 text-sm font-bold text-white-500">
-          <a href="#projects" className="hover:text-primary-600 transition-colors mt-2">Projects</a>
-          <a href="#skills" className="hover:text-primary-600 transition-colors mt-2">Skills</a>
-          <a href="#contact" className="hover:text-primary-400 transition-colors px-4 py-2 gradient-bg rounded-full text-white shadow-lg shadow-pink-500/20">Contact</a>
+        <div className="hidden md:flex gap-8 items-center">
+          <a
+            href="#projects"
+            className="text-on-surface hover:text-primary transition-colors hover:opacity-80 font-mono text-sm"
+          >
+            Projects
+          </a>
+          <a
+            href="#skills"
+            className="text-on-surface hover:text-primary transition-colors hover:opacity-80 font-mono text-sm"
+          >
+            Skills
+          </a>
         </div>
+
+        <a
+          href="#contact"
+          className="hidden md:inline-flex items-center justify-center bg-primary-container text-white px-6 py-2 rounded-full font-mono text-sm btn-primary-glow hover:opacity-90 transition-all duration-300 active:scale-95"
+        >
+          Contact
+        </a>
       </div>
     </nav>
   );

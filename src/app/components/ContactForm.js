@@ -1,104 +1,206 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { useActionState, useEffect, useRef } from "react";
+import { submitContactForm } from "@/app/actions/contact";
+import { initialFormState } from "@/lib/validation/contact-schema";
 
 const ContactForm = () => {
-  const [status, setStatus] = useState('idle');
+  const [state, formAction, isPending] = useActionState(
+    submitContactForm,
+    initialFormState
+  );
+  const formRef = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    // Simulación de envío
-    setTimeout(() => setStatus('sent'), 1500);
-  };
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [state.status]);
+
+  const inputClasses =
+    "w-full bg-surface-container-highest border border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors text-base disabled:opacity-50 disabled:cursor-not-allowed";
+  const inputErrorClasses =
+    "w-full bg-surface-container-highest border border-error/50 rounded-lg px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-error focus:ring-1 focus:ring-error transition-colors text-base";
+
+  const getInputClass = (field) =>
+    state.errors[field] ? inputErrorClasses : inputClasses;
+
+  const isSuccess = state.status === "success";
+  const isError = state.status === "error";
 
   return (
-    <section id="contact" className="py-0 md:py-24 bg-white-900/50">
-      <div className="container mx-auto px-0">
-        <div className="max-w-9xl mx-auto glass p-8 md:p-16 overflow-hidden relative">
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 gradient-bg opacity-10 blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+    <section id="contact" className="w-full mt-24 md:mt-32 mb-12 md:mb-16">
+      <div className="w-full max-w-[1280px] mx-auto px-5 md:px-6">
+        <div className="glass-card rounded-2xl p-6 sm:p-10 md:p-16 flex flex-col lg:flex-row gap-10 lg:gap-16 relative overflow-hidden">
+          <div className="absolute -top-20 -right-20 bg-primary/10 w-96 h-96 blur-[100px] rounded-full z-0 pointer-events-none"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                <span className="gradient-text">Lets build</span> Something Great.
-              </h2>
-              <p className="text-slate-400 mb-10 text-md">
-                Whether you have a specific project in mind or just want to say hi, my inbox is always open.
-              </p>
+          <div className="w-full lg:w-1/2 flex flex-col justify-center z-10">
+            <h2 className="font-headline text-3xl md:text-4xl lg:text-[40px] font-bold text-on-surface mb-6">
+              <span className="text-primary">Lets build</span> Something Great.
+            </h2>
+            <p className="text-base md:text-lg text-on-surface-variant mb-10 md:mb-12 max-w-md leading-relaxed">
+              Whether you have a specific project in mind or just want to say hi,
+              my inbox is always open.
+            </p>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center text-pink-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500">Email</p>
-                    <p className="text-gray-500 font-medium">escalonagenesis97@gmail.com</p>
-                  </div>
+            <div className="flex flex-col gap-8">
+              <div className="flex items-center gap-4 md:gap-6">
+                <div className="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center border border-white/5 text-primary shrink-0">
+                  <Mail size={20} />
                 </div>
+                <div>
+                  <p className="font-mono text-sm text-on-surface-variant mb-1">Email</p>
+                  <p className="text-on-surface">escalonagenesis97@gmail.com</p>
+                </div>
+              </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center text-primary-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500">Location</p>
-                    <p className="text-gray-500 font-medium">Remote (UTC-5)</p>
-                  </div>
+              <div className="flex items-center gap-4 md:gap-6">
+                <div className="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center border border-white/5 text-primary shrink-0">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <p className="font-mono text-sm text-on-surface-variant mb-1">Location</p>
+                  <p className="text-on-surface">Remote (UTC-5)</p>
                 </div>
               </div>
             </div>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm text-slate-400 ml-1">Name</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full bg-white/5 border border-gray/10 rounded-2xl px-4 py-3 focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-all outline-none"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm text-slate-400 ml-1">Email</label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full bg-white/5 border border-gray/10 rounded-2xl px-4 py-3 focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-all outline-none"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm text-slate-400 ml-1">Project Details</label>
-                <textarea
-                  required
-                  rows={4}
-                  className="w-full bg-white/5 border border-gray/10 rounded-2xl px-6 py-4 focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-all outline-none resize-none"
-                  placeholder="Tell me about your project..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                disabled={status !== 'idle'}
-                className="w-full py-2 gradient-bg rounded-2xl font-bold text-md text-white shadow-xl shadow-pink-500/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
-              >
-                {status === 'idle' && 'Send Message'}
-                {status === 'sending' && 'Sending...'}
-                {status === 'sent' && 'Message Sent! ✨'}
-              </button>
-            </form>
           </div>
+
+          <form
+            ref={formRef}
+            action={formAction}
+            className="w-full lg:w-1/2 z-10 flex flex-col gap-6"
+          >
+            <div aria-hidden="true" style={{ position: "absolute", left: "-9999px" }}>
+              <label>
+                Website
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  defaultValue=""
+                />
+              </label>
+            </div>
+
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="w-full">
+                <label
+                  className="block font-mono text-sm text-on-surface-variant mb-2"
+                  htmlFor="name"
+                >
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  disabled={isPending}
+                  aria-invalid={Boolean(state.errors.name)}
+                  className={getInputClass("name")}
+                  placeholder="John Doe"
+                />
+                {state.errors.name && (
+                  <p className="mt-2 text-xs text-error flex items-center gap-1">
+                    <AlertCircle size={12} />
+                    {state.errors.name}
+                  </p>
+                )}
+              </div>
+              <div className="w-full">
+                <label
+                  className="block font-mono text-sm text-on-surface-variant mb-2"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  disabled={isPending}
+                  aria-invalid={Boolean(state.errors.email)}
+                  className={getInputClass("email")}
+                  placeholder="john@example.com"
+                />
+                {state.errors.email && (
+                  <p className="mt-2 text-xs text-error flex items-center gap-1">
+                    <AlertCircle size={12} />
+                    {state.errors.email}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <label
+                className="block font-mono text-sm text-on-surface-variant mb-2"
+                htmlFor="message"
+              >
+                Project Details
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                disabled={isPending}
+                aria-invalid={Boolean(state.errors.message)}
+                className={`${getInputClass("message")} resize-none`}
+                placeholder="Tell me about your project..."
+              ></textarea>
+              {state.errors.message && (
+                <p className="mt-2 text-xs text-error flex items-center gap-1">
+                  <AlertCircle size={12} />
+                  {state.errors.message}
+                </p>
+              )}
+            </div>
+
+            {(isSuccess || isError) && state.message && (
+              <div
+                role="status"
+                aria-live="polite"
+                className={`flex items-start gap-2 px-4 py-3 rounded-lg border text-sm ${
+                  isSuccess
+                    ? "bg-primary-container/10 border-primary-container/30 text-primary"
+                    : "bg-error/10 border-error/30 text-error"
+                }`}
+              >
+                {isSuccess ? (
+                  <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+                ) : (
+                  <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                )}
+                <span>{state.message}</span>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={isPending || isSuccess}
+              className="w-full bg-primary-container text-white font-bold text-lg py-4 rounded-lg btn-primary-glow hover:opacity-90 transition-all duration-300 mt-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {isPending && <Loader2 size={18} className="animate-spin" />}
+              {isPending && "Sending..."}
+              {!isPending && isSuccess && (
+                <>
+                  <CheckCircle2 size={18} />
+                  Message Sent
+                </>
+              )}
+              {!isPending && !isSuccess && (
+                <>
+                  <Send size={18} />
+                  Send Message
+                </>
+              )}
+            </button>
+          </form>
         </div>
       </div>
     </section>
