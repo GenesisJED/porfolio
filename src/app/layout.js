@@ -40,7 +40,6 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div className="flex-grow">{children}</div>
         <Footer />
-        <BottomNav />
       </body>
     </html>
   );
