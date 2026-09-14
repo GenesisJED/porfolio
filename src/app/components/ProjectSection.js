@@ -24,13 +24,13 @@ const ProjectSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-[1100px] mx-auto">
           {projects.map(({ id, image, title, description, url, github }) => (
             <article
               key={id}
-              className="glass-card glass-card-hover rounded-xl overflow-hidden flex flex-col group"
+              className="glass-card glass-card-hover rounded-xl overflow-hidden flex flex-col group w-full"
             >
-              <div className="relative h-48 bg-surface-container-high overflow-hidden border-b border-white/5">
+              <div className="relative h-36 bg-surface-container-high overflow-hidden border-b border-white/5">
                 {image ? (
                   <Image
                     src={image}
@@ -41,7 +41,7 @@ const ProjectSection = () => {
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-primary-container/30 to-tertiary/20 flex items-center justify-center">
-                    <span className="text-primary font-headline text-lg px-4 text-center">
+                    <span className="text-primary font-headline text-base px-4 text-center">
                       {title}
                     </span>
                   </div>
@@ -49,11 +49,11 @@ const ProjectSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-50"></div>
               </div>
 
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <h3 className="font-headline text-xl text-on-surface mb-4 font-bold group-hover:text-primary transition-colors">
+              <div className="p-5 md:p-6 flex flex-col flex-grow">
+                <h3 className="font-headline text-lg text-on-surface mb-3 font-bold group-hover:text-primary transition-colors">
                   {title}
                 </h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                <p className="text-on-surface-variant text-xs md:text-sm leading-relaxed mb-5 flex-grow line-clamp-3">
                   {description}
                 </p>
 

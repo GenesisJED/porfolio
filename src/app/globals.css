@@ -222,3 +222,12 @@ body {
   border-color: rgba(255, 177, 192, 0.4);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(255, 177, 192, 0.2);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
