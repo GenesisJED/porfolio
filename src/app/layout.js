@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Header";
 import Footer from "./components/Footer";
 import BottomNav from "./components/BottomNav";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
         <div className="flex-grow">{children}</div>
         <Footer />
         <BottomNav />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

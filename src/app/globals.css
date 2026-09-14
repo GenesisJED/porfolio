@@ -141,16 +141,12 @@ body {
   flex-shrink: 0;
   background: transparent;
   position: relative;
-  border-radius: 50%;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 177, 192, 0.2);
+  border-radius: 24px;
+  box-shadow: none;
 }
 
 .hero-image-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle, transparent 50%, #121221 95%);
+  display: none;
 }
 
 .hero-image {
@@ -159,9 +155,9 @@ body {
   object-fit: cover;
   object-position: center top;
   display: block;
-  filter: drop-shadow(0 0 30px rgba(255, 177, 192, 0.2));
-  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 90%);
-  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 90%);
+  filter: none;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .hero-dev-float {

@@ -1,4 +1,3 @@
-import { Github, Linkedin } from "lucide-react";
 import { BaseInfo } from "../../../Data/data.js";
 
 const HeroSection = () => {
@@ -7,22 +6,25 @@ const HeroSection = () => {
       id="home"
       className="relative w-full overflow-hidden min-h-[80vh] flex items-center justify-center pt-10 pb-12 md:pt-32 md:pb-16"
     >
-      <div
-        className="pattern-bg"
-        style={{ opacity: 0.35 }}
-        suppressHydrationWarning
-      ></div>
-
-      <div className="absolute top-1/4 -left-16 w-[480px] h-[480px] bg-primary-container/25 blur-[100px] rounded-full z-[-1] pointer-events-none"></div>
-
-      <div className="w-full max-w-[1280px] mx-auto px-5 md:px-6 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-        <div className="w-full lg:w-1/2 flex flex-col gap-6 z-10 relative items-center text-center lg:items-start lg:text-left animate-fade-in-up">
+      <img
+        src="/images/galaxy-bg.svg"
+        alt=""
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-30 pointer-events-none z-0"
+      />
+      <img
+        src="/images/figures-bg.svg"
+        alt=""
+        className="absolute bottom-0 right-0 w-40 h-40 opacity-20 pointer-events-none z-0"
+      />
+      <div className="w-full max-w-[1280px] mx-auto px-5 md:px-6 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14 z-10 relative">
+        {/* Left Column: Heading & Intro */}
+        <div className="w-full lg:w-[50%] flex flex-col gap-6 z-10 relative items-center text-center lg:items-start lg:text-left animate-fade-in-up">
           <div>
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-[44px] lg:text-[52px] xl:text-[56px] font-extrabold text-on-surface leading-[1.3] tracking-[-0.02em] mb-6">
-              <span className="block text-primary text-glow-primary text-2xl sm:text-3xl md:text-[28px] lg:text-[32px] xl:text-[36px] mb-5">
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-[44px] lg:text-[52px] xl:text-[56px] font-extrabold text-on-surface leading-[1.2] tracking-[-0.02em] mb-6">
+              <span className="block text-[#ff6b9d] drop-shadow-[0_0_20px_rgba(255,107,157,0.5)] text-2xl sm:text-3xl md:text-[28px] lg:text-[32px] xl:text-[36px] mb-4">
                 Hello, my name is Genesis
               </span>
-              <span className="block mt-4 leading-[1]">I am a Full Stack Developer</span>
+              <span className="block text-white leading-[1.1]">I am a Full Stack Developer</span>
             </h1>
           </div>
 
@@ -35,7 +37,7 @@ const HeroSection = () => {
               Find me on LinkedIn &amp; GitHub
             </span>
             <a
-              className="text-on-surface-variant hover:text-primary transition-all duration-300 ease-out hover:scale-105"
+              className="text-on-surface-variant hover:text-white transition-all duration-300 ease-out hover:scale-105"
               href="https://www.linkedin.com/in/g%C3%A9nesis-e-602b151b4/"
               target="_blank"
               rel="noopener noreferrer"
@@ -46,7 +48,7 @@ const HeroSection = () => {
               </svg>
             </a>
             <a
-              className="text-on-surface-variant hover:text-primary transition-all duration-300 ease-out hover:scale-105"
+              className="text-on-surface-variant hover:text-white transition-all duration-300 ease-out hover:scale-105"
               href="https://github.com/GenesisJED"
               target="_blank"
               rel="noopener noreferrer"
@@ -59,13 +61,16 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 flex justify-center relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl z-[-1] animate-pulse-glow"></div>
-          <div className="hero-dev-float hero-image-wrapper relative">
+        {/* Right Column: Image Card */}
+        <div
+          className="w-full lg:w-[48%] flex justify-center lg:justify-end items-end self-end animate-fade-in-up mt-6 lg:mt-auto"
+          style={{ animationDelay: "0.2s" }}
+        >
+          <div className="hero-dev-float relative w-full max-w-[460px] rounded-2xl overflow-hidden border border-[#262438] bg-[#121124]">
             <img
               src="/images/banner-img.png"
               alt="Desarrolladora de software"
-              className="hero-image"
+              className="w-full h-auto object-cover block rounded-2xl"
             />
           </div>
         </div>
