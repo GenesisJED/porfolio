@@ -3,7 +3,7 @@ import { Home, Rocket, Terminal, Send } from "lucide-react";
 
 const BottomNav = () => {
   return (
-    <nav className="fixed bottom-0 w-full z-50 md:hidden bg-surface-container/20 backdrop-blur-xl border-t border-white/5 shadow-2xl">
+    <nav className="fixed bottom-0 w-full z-50 md:hidden bg-[#16162a] border-t border-primary/20 shadow-[0_-8px_30px_rgba(0,0,0,0.85)]">
       <div className="flex justify-around items-center py-3 px-6">
         <a
           href="#"
