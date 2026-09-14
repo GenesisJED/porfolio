@@ -56,22 +56,19 @@ const ContactForm = () => {
             </p>
 
             <div className="flex flex-col gap-4">
-              <a href="mailto:escalonagenesis97@gmail.com" className="flex items-center justify-between p-4 md:p-5 rounded-xl bg-surface-container-high border border-white/5 hover:bg-surface-container-highest transition-colors group">
+              <a href="mailto:escalonagenesis97@gmail.com" className="flex items-center justify-between p-2 md:p-5 rounded-xl bg-surface-container-high border border-white/5 hover:bg-surface-container-highest transition-colors group">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform">
-                    <Mail size={18} />
+                    <Mail size={14} />
                   </div>
                   <div>
                     <p className="font-mono text-xs text-on-surface-variant mb-1">Email Direct</p>
                     <p className="text-on-surface text-sm md:text-base font-medium">escalonagenesis97@gmail.com</p>
                   </div>
                 </div>
-                <div className="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
-                  <ExternalLink size={16} />
-                </div>
               </a>
 
-              <div className="flex items-center justify-between p-4 md:p-5 rounded-xl bg-surface-container-high border border-white/5">
+              <div className="flex items-center justify-between p-2 md:p-5 rounded-xl bg-surface-container-high border border-white/5">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
                     <Clock size={18} />
@@ -80,9 +77,6 @@ const ContactForm = () => {
                     <p className="font-mono text-xs text-on-surface-variant mb-1">Availability & Location</p>
                     <p className="text-on-surface text-sm md:text-base font-medium">Remote • UTC-5 (EST / LatAm Friendly)</p>
                   </div>
-                </div>
-                <div className="px-2.5 py-1 bg-[#104d4f] border border-[#166c6f] text-secondary-fixed-dim text-[10px] font-bold tracking-wider rounded uppercase">
-                  ACTIVE
                 </div>
               </div>
             </div>
@@ -98,14 +92,7 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-on-surface">Instant WhatsApp Chat</h3>
-                    <div className="flex items-center gap-2 text-xs font-mono text-on-surface-variant mt-1">
-                      <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
-                      Online • Direct Developer Response
-                    </div>
                   </div>
-                </div>
-                <div className="px-3 py-1.5 bg-surface-container border border-white/5 text-on-surface-variant text-xs font-mono rounded-lg shrink-0">
-                  &lt; 15 min reply
                 </div>
               </div>
 

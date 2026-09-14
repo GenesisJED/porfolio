@@ -64,7 +64,7 @@ const ProjectCard = ({ image, title, description, url, github }) => {
 
 const ProjectSection = () => {
   return (
-    <section id="projects" className="w-full mt-24 md:mt-32">
+    <section id="projects" className="w-full mt-10 md:mt-32">
       <div className="w-full max-w-[1280px] mx-auto px-5 md:px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-headline text-3xl md:text-4xl lg:text-[40px] font-bold text-on-surface mb-4">
