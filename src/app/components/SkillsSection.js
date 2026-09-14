@@ -28,7 +28,7 @@ const SkillsSection = () => {
             return (
               <div
                 key={cat}
-                className="glass-card p-6 md:p-8 rounded-xl flex flex-col h-full"
+                className="glass-card glass-card-hover p-6 md:p-8 rounded-xl flex flex-col h-full"
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`w-2 h-2 rounded-full ${config.dot} ${config.glow}`}></div>
@@ -39,10 +39,10 @@ const SkillsSection = () => {
 
                 <div className="flex flex-wrap gap-3 mt-auto">
                   {SKILLS.filter((s) => s.category === cat).map((skill) => (
-                    <span
-                      key={skill.name}
-                      className={`px-4 py-2 bg-surface-container-high border border-white/5 rounded-lg font-mono text-sm text-on-surface transition-colors ${config.hover}`}
-                    >
+                      <span
+                        key={skill.name}
+                        className={`px-4 py-2 bg-surface-container-high border border-white/5 rounded-lg font-mono text-sm text-on-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${config.hover}`}
+                      >
                       {skill.name}
                     </span>
                   ))}

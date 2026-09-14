@@ -28,7 +28,7 @@ const ProjectSection = () => {
           {projects.map(({ id, image, title, description, url, github }) => (
             <article
               key={id}
-              className="glass-card rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2"
+              className="glass-card glass-card-hover rounded-xl overflow-hidden flex flex-col group"
             >
               <div className="relative h-48 bg-surface-container-high overflow-hidden border-b border-white/5">
                 {image ? (

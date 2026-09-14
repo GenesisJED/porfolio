@@ -5,18 +5,18 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden min-h-[80vh] flex items-center justify-center pt-28 pb-12 md:pt-32 md:pb-16"
+      className="relative w-full overflow-hidden min-h-[80vh] flex items-center justify-center pt-10 pb-12 md:pt-32 md:pb-16"
     >
       <div
         className="pattern-bg"
-        style={{ opacity: 0.15 }}
+        style={{ opacity: 0.35 }}
         suppressHydrationWarning
       ></div>
 
       <div className="absolute top-1/4 -left-16 w-[480px] h-[480px] bg-primary-container/25 blur-[100px] rounded-full z-[-1] pointer-events-none"></div>
 
       <div className="w-full max-w-[1280px] mx-auto px-5 md:px-6 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-        <div className="w-full lg:w-1/2 flex flex-col gap-6 z-10 relative items-center text-center lg:items-start lg:text-left">
+        <div className="w-full lg:w-1/2 flex flex-col gap-6 z-10 relative items-center text-center lg:items-start lg:text-left animate-fade-in-up">
           <div>
             <h1 className="font-headline text-3xl sm:text-4xl md:text-[44px] lg:text-[52px] xl:text-[56px] font-extrabold text-on-surface leading-[1.3] tracking-[-0.02em] mb-6">
               <span className="block text-primary text-glow-primary text-2xl sm:text-3xl md:text-[28px] lg:text-[32px] xl:text-[36px] mb-5">
@@ -26,7 +26,7 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          <p className="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed mt-1">
+          <p className="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed mt-0 md:mt-1">
             {BaseInfo.description}
           </p>
 
@@ -35,7 +35,7 @@ const HeroSection = () => {
               Find me on LinkedIn &amp; GitHub
             </span>
             <a
-              className="text-on-surface-variant hover:text-primary transition-colors duration-300"
+              className="text-on-surface-variant hover:text-primary transition-all duration-300 ease-out hover:scale-105"
               href="https://www.linkedin.com/in/g%C3%A9nesis-e-602b151b4/"
               target="_blank"
               rel="noopener noreferrer"
@@ -46,7 +46,7 @@ const HeroSection = () => {
               </svg>
             </a>
             <a
-              className="text-on-surface-variant hover:text-primary transition-colors duration-300"
+              className="text-on-surface-variant hover:text-primary transition-all duration-300 ease-out hover:scale-105"
               href="https://github.com/GenesisJED"
               target="_blank"
               rel="noopener noreferrer"
@@ -59,11 +59,11 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 flex justify-center relative">
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl z-[-1]"></div>
+        <div className="w-full lg:w-1/2 flex justify-center relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl z-[-1] animate-pulse-glow"></div>
           <div className="hero-dev-float hero-image-wrapper relative">
             <img
-              src="/images/cat-hero.png"
+              src="/images/banner-img.png"
               alt="Desarrolladora de software"
               className="hero-image"
             />

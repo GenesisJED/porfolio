@@ -10,7 +10,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/10 backdrop-blur-md border-b border-white/10 shadow-sm transition-all duration-300">
+    <nav className="relative lg:fixed top-0 w-full z-50 bg-[#16162a] transition-all duration-300">
+      <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
       <div className="flex justify-between items-center max-w-[1280px] mx-auto px-5 md:px-6 py-4">
         <a
           href="#"
