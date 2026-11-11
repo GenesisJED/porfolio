@@ -6,7 +6,17 @@ import { projects } from "../../../Data/data.js";
 
 import { Sparkles } from "lucide-react";
 
-const ProjectCard = ({ image, title, description, url, github }) => {
+const TAG_COLORS = [
+  { dot: "#a78bfa", bg: "rgba(167,139,250,0.08)", border: "rgba(167,139,250,0.2)" },
+  { dot: "#34d399", bg: "rgba(52,211,153,0.08)", border: "rgba(52,211,153,0.2)" },
+  { dot: "#60a5fa", bg: "rgba(96,165,250,0.08)", border: "rgba(96,165,250,0.2)" },
+  { dot: "#f472b6", bg: "rgba(244,114,182,0.08)", border: "rgba(244,114,182,0.2)" },
+  { dot: "#fb923c", bg: "rgba(251,146,60,0.08)", border: "rgba(251,146,60,0.2)" },
+  { dot: "#facc15", bg: "rgba(250,204,21,0.08)", border: "rgba(250,204,21,0.2)" },
+  { dot: "#22d3ee", bg: "rgba(34,211,238,0.08)", border: "rgba(34,211,238,0.2)" },
+];
+
+const ProjectCard = ({ image, title, description, url, github, tags }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -34,6 +44,31 @@ const ProjectCard = ({ image, title, description, url, github }) => {
         <h3 className="font-headline text-lg md:text-xl text-white mb-3 font-bold group-hover:text-primary transition-colors">
           {title}
         </h3>
+
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {tags.map((tag, i) => {
+              const color = TAG_COLORS[i % TAG_COLORS.length];
+              return (
+                <span
+                  key={tag}
+                  style={{
+                    backgroundColor: color.bg,
+                    border: `1px solid ${color.border}`,
+                    color: "#c8c8d8",
+                  }}
+                  className="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-1 rounded-full tracking-wide"
+                >
+                  <span
+                    style={{ backgroundColor: color.dot }}
+                    className="w-1.5 h-1.5 rounded-full shrink-0"
+                  />
+                  {tag}
+                </span>
+              );
+            })}
+          </div>
+        )}
         <p className={`text-[#8c8c9a] text-sm leading-relaxed mb-2 ${isExpanded ? "" : "line-clamp-3"}`}>
           {description}
         </p>
