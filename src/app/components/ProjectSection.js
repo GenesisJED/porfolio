@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "../../../Data/data.js";
@@ -7,6 +7,8 @@ import { projects } from "../../../Data/data.js";
 import { Sparkles } from "lucide-react";
 
 const ProjectCard = ({ image, title, description, url, github }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <article className="bg-[#12121a] border border-[#2a2a35] hover:border-primary/30 transition-all duration-300 rounded-[24px] flex flex-col group w-full p-3 md:p-4">
       <div className="relative h-44 bg-[#161621] rounded-2xl overflow-hidden border border-[#2a2a35] flex items-center justify-center p-6 w-full">
@@ -25,15 +27,22 @@ const ProjectCard = ({ image, title, description, url, github }) => {
             {title === "AI Text-to-Image Generator" ? "Transform your words into images with AI" : title}
           </h4>
         )}
+        <span className="absolute top-4 right-4 md:hidden bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-20">Active</span>
       </div>
 
       <div className="pt-6 px-2 md:px-3 flex flex-col flex-grow">
         <h3 className="font-headline text-lg md:text-xl text-white mb-3 font-bold group-hover:text-primary transition-colors">
           {title}
         </h3>
-        <p className="text-[#8c8c9a] text-sm leading-relaxed mb-8 line-clamp-3">
+        <p className={`text-[#8c8c9a] text-sm leading-relaxed mb-2 ${isExpanded ? "" : "line-clamp-3"}`}>
           {description}
         </p>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-primary font-mono text-xs hover:underline text-left mb-6 self-start active:scale-95 transition-transform"
+        >
+          {isExpanded ? "Show less" : "Show more"}
+        </button>
 
         <div className="flex items-center gap-3 mt-auto">
           <Link

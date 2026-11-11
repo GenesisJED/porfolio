@@ -32,14 +32,17 @@ export const SKILLS = [
   { name: "React / Next.js", level: 100, category: 'Frontend', priority: 'high' },
   { name: "TypeScript", level: 100, category: 'Frontend', priority: 'high' },
   { name: "Tailwind CSS", level: 100, category: 'Frontend', priority: 'high' },
+  { name: "WordPress", level: 100, category: 'Frontend', priority: 'high' },
   { name: "Node.js", level: 85, category: 'Backend', priority: 'high' },
   { name: "PostgreSQL", level: 80, category: 'Backend', priority: 'medium' },
+  { name: "PHP / Laravel", level: 75, category: 'Backend', priority: 'medium' },
   { name: "Python / FastAPI", level: 75, category: 'Backend', priority: 'medium' },
   { name: "AWS / Vercel", level: 85, category: 'DevOps', priority: 'medium' },
   { name: "Docker", level: 70, category: 'DevOps', priority: 'low' },
   { name: "Git / CI/CD", level: 90, category: 'Tools', priority: 'medium' },
   { name: "Figma", level: 85, category: 'Tools', priority: 'medium' },
   { name: "GraphQL", level: 70, category: 'Backend', priority: 'low' },
+  { name: "MongoDB", level: 70, category: 'Backend', priority: 'low' },
   { name: "Redux / Zustand", level: 95, category: 'Frontend', priority: 'medium' }
 ];
 
